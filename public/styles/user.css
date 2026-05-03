@@ -1,0 +1,401 @@
+/* User Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Book Card */
+.book-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.book-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.book-card-body {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-category-badge {
+  display: inline-block;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+.book-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.book-author {
+  font-size: 13px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.book-card-footer {
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.book-status.available {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.book-status.reserved {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.book-status.borrowed {
+  background-color: #ffccbc;
+  color: #bf360c;
+}
+
+.reserve-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.reserve-btn.btn-outline {
+  padding: 5px 11px;
+}
+
+/* Account Panel */
+.account-panel {
+  position: fixed;
+  top: var(--nav-height);
+  right: 0;
+  width: 300px;
+  height: calc(100vh - var(--nav-height));
+  background-color: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 300;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.account-panel.open {
+  transform: translateX(0);
+}
+
+.account-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.account-panel-header h3 {
+  margin: 0;
+}
+
+.account-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.account-panel-close:hover {
+  opacity: 0.6;
+}
+
+.account-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.account-section:last-child {
+  border-bottom: none;
+}
+
+.account-section h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.account-info {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.account-info-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.account-info-value {
+  color: #666;
+}
+
+/* Overlay for account panel */
+.account-overlay {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 250;
+}
+
+.account-overlay.open {
+  display: block;
+}
+
+/* Filter and Search Bar */
+.user-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.user-controls select,
+.user-controls input[type="search"] {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* User Profile Avatar */
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--color-surface);
+}
+
+.avatar-small {
+  width: 40px;
+  height: 40px;
+}
+
+/* Welcome Section */
+.welcome-banner {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.welcome-banner h2 {
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.welcome-banner p {
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-item-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.stat-item-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+}
+
+/* Reservation Card */
+.reservation-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.reservation-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.reservation-card-title {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.reservation-status-badge {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.reservation-card-body {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.reservation-card-body p {
+  margin: 8px 0;
+}
+
+.reservation-card-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* Borrow History Table */
+.borrow-history-table {
+  width: 100%;
+  font-size: 13px;
+}
+
+.borrow-history-table th {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.borrow-history-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.borrow-history-table tr:hover {
+  background-color: var(--color-surface);
+}
+
+/* Form for Profile */
+.profile-form-group {
+  margin-bottom: 16px;
+}
+
+.profile-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.profile-form-group input,
+.profile-form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.profile-form-group input:disabled,
+.profile-form-group select:disabled {
+  background-color: var(--color-surface);
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .account-panel {
+    width: 100%;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .user-controls {
+    flex-direction: column;
+  }
+
+  .user-controls select,
+  .user-controls input[type="search"] {
+    width: 100%;
+  }
+}
